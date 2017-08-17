@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ahsan.a27smanthademo">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".FriendlistActivity" />
+        <activity android:name=".AddFriendActivity" />
+
+        <service
+            android:name=".AddFriendService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".AddFriendBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ahsan.a27smanthademo.BROADCAST_ADD_FRIEND_SUCCESS" />
+                <action android:name="com.ahsan.a27smanthademo.BROADCAST_ADD_FRIEND_FAILURE" />
+                <action android:name="com.ahsan.a27smanthademo.FRIEND_REQUEST_SUCCESS" />
+                <action android:name="com.ahsan.a27smanthademo.FRIEND_REQUEST_FAILURE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".FriendRequestActivity" />
+        <activity android:name=".FriendRequestsActivity" />
+        <activity android:name=".InboxActivity"></activity>
+    </application>
+
+</manifest>
